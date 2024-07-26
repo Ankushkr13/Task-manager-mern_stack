@@ -33,6 +33,12 @@ app.use(express.static(path.join(__dirname, './client/build')))
 //routes
 app.use('/api', taskRoutes);
 
+
+//Rest api
+app.use("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "/client/build/index.html"))
+})
+
 //PORT SETUP
 const PORT = process.env.PORT || 5000;
 
